@@ -1,0 +1,475 @@
+/* =========================================
+   STUDENT FEEDBACK MANAGER
+   Modern Animated UI
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+
+  /* Animated gradient background */
+  background: linear-gradient(
+    -45deg,
+    #0f172a,
+    #1e1b4b,
+    #312e81,
+    #0f766e
+  );
+
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* =========================================
+   BACKGROUND GLOW EFFECTS
+========================================= */
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.35;
+  z-index: -1;
+}
+
+body::before {
+  background: #8b5cf6;
+  top: -100px;
+  left: -100px;
+  animation: floatingGlow 7s ease-in-out infinite;
+}
+
+body::after {
+  background: #06b6d4;
+  bottom: -100px;
+  right: -100px;
+  animation: floatingGlow 9s ease-in-out infinite reverse;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+header {
+  width: min(100% - 40px, 1000px);
+  margin-top: 60px;
+  padding: 35px 30px;
+
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-radius: 28px;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+  animation: slideDown 1s ease forwards;
+}
+
+/* Header title */
+
+header h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+
+  letter-spacing: -1px;
+
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #c4b5fd,
+    #67e8f9,
+    #ffffff
+  );
+
+  background-size: 300% auto;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  animation: textShine 5s linear infinite;
+}
+
+/* Header subtitle */
+
+header p {
+  margin-top: 12px;
+
+  font-size: 1.1rem;
+  color: #dbeafe;
+
+  letter-spacing: 1px;
+
+  animation: fadeIn 1.5s ease;
+}
+
+/* =========================================
+   MAIN CARD
+========================================= */
+
+main {
+  width: min(100% - 40px, 700px);
+
+  margin: 50px 0;
+
+  padding: 55px 45px;
+
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  border-radius: 30px;
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+  animation: cardAppear 1.2s ease forwards;
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+/* Card hover */
+
+main:hover {
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 35px 90px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(139, 92, 246, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* =========================================
+   WELCOME TITLE
+========================================= */
+
+main h2 {
+  font-size: 2.3rem;
+
+  margin-bottom: 18px;
+
+  color: #ffffff;
+
+  position: relative;
+
+  display: inline-block;
+}
+
+/* Decorative line */
+
+main h2::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -8px;
+
+  width: 60%;
+  height: 3px;
+
+  transform: translateX(-50%);
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    90deg,
+    #8b5cf6,
+    #22d3ee
+  );
+
+  animation: lineGrow 1.5s ease;
+}
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+main p {
+  margin: 30px auto;
+
+  max-width: 500px;
+
+  font-size: 1.05rem;
+
+  line-height: 1.8;
+
+  color: #dbeafe;
+}
+
+/* =========================================
+   BUTTON LINKS
+========================================= */
+
+main a {
+  display: inline-block;
+
+  min-width: 220px;
+
+  margin: 10px;
+
+  padding: 15px 28px;
+
+  border-radius: 14px;
+
+  text-decoration: none;
+
+  font-size: 1rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.3px;
+
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #7c3aed,
+    #4f46e5
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  box-shadow:
+    0 10px 25px rgba(79, 70, 229, 0.35);
+
+  position: relative;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+/* Button shine */
+
+main a::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 70%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.6s ease;
+}
+
+/* Button hover */
+
+main a:hover {
+  transform: translateY(-5px) scale(1.03);
+
+  background: linear-gradient(
+    135deg,
+    #8b5cf6,
+    #06b6d4
+  );
+
+  box-shadow:
+    0 15px 35px rgba(6, 182, 212, 0.3),
+    0 0 25px rgba(139, 92, 246, 0.3);
+}
+
+main a:hover::before {
+  left: 130%;
+}
+
+/* Button click */
+
+main a:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floatingGlow {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(50px, -30px) scale(1.2);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes textShine {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 300% center;
+  }
+}
+
+@keyframes lineGrow {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 60%;
+  }
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 600px) {
+
+  header {
+    margin-top: 25px;
+    padding: 28px 20px;
+
+    border-radius: 22px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 0.95rem;
+  }
+
+  main {
+    margin: 30px 0;
+    padding: 40px 20px;
+
+    border-radius: 24px;
+  }
+
+  main h2 {
+    font-size: 1.9rem;
+  }
+
+  main p {
+    font-size: 0.95rem;
+  }
+
+  main a {
+    display: block;
+
+    width: 100%;
+
+    margin: 15px 0;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
